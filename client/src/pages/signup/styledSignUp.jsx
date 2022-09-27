@@ -585,7 +585,6 @@ export const Container = styled.div`
   background: linear-gradient(#111425, #3751e0);
   background-attachment: fixed;
   overflow: hidden;
-  font-family: 'Anonymous Pro', monospace;
 
   &:before {
     content: '';
@@ -617,14 +616,12 @@ export const blinkCaret = keyframes`
 
 export const Initialphrase = styled.p`
   color: #fff;
-  font-family: monospace;
-  font-size: 16px;
+  font-size: 1rem;
   display: block;
   letter-spacing: .15em; 
   overflow: hidden; 
-  border-right: .15em solid white; 
   white-space: nowrap;
-  margin: 0 auto;
+  margin-bottom: 20px;
   animation: 
     ${typing} 3.5s steps(30, end),
     ${blinkCaret} .5s step-end infinite;
@@ -637,12 +634,12 @@ export const ContainerPhrase = styled.div`
   padding-left: 48px;
   padding-right: 48px;
   background-color: #0c162d;
+  border-radius: 5px;
 `
 
-export const EmailContainer = styled.div`
+export const EmailContainer = styled.form`
   display: ${props => props.typeDisplay ? "block" : "none"};
   margin-top: 24px;
-  font-family: monospace;
   max-height: 70%;
 `
 export const Emailphrase = styled.p`
@@ -650,7 +647,7 @@ export const Emailphrase = styled.p`
   font-weight: 600;
   font-size: 16px;
   padding-bottom: 5px;
-  margin-top: 8px;
+  margin-top: 16px;
 `
 
 export const EmailInputContainer = styled.div`
@@ -728,25 +725,37 @@ export const ButtonSignup = styled.button`
     border: 1px solid white;
     border-radius: 6px;
     padding: 6px;
-    font-family: monospace;
     color: white;
+    display: ${props => props.typeDisplay ? "none" : "block"};
+
+    &:hover {
+      border-color: #ea4aaa;
+    }
   `
-export const ButtonSignupFim = styled.button`
-    background-color: #ea4aaa;
+export const ContainerButtonLogin = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 10px;
+`
+
+export const ButtonSignupFim = styled.button`
+    background-color: #ea4aa600;
     border: 1px solid white;
     border-radius: 6px;
     padding: 6px;
-    font-family: monospace;
     color: white;
+    margin-top: 24px;
+    width: 80%;
+
+    &:hover {
+      border-color: #ea4aaa;
+    }
 `
 
 export const UsernameContainer = styled.input`
   display: ${props => props.typeDisplay ? "block" : "none"};
   margin-top: 24px;
-  font-family: monospace;
   height: 50px;
 `
 export const Usernamephrase = styled.p`
@@ -754,4 +763,38 @@ export const Usernamephrase = styled.p`
   font-weight: 600;
   font-size: 16px;
   padding-bottom: 5px;
+`
+
+export const Psuccess = styled.p`
+  color: #ffff;
+  background: #5ec75e;
+  margin-bottom: 24px;
+  text-align: center;
+  padding: 5px;
+`
+
+export const Perror = styled.p`
+  color: #ffff;
+  background: #f54f4f; 
+  margin-bottom: 24px;
+  padding: 5px;
+  text-align: center;
+`
+
+export const LinktoSignin = styled.p`
+  color: #ffffffa8;
+  position: end;
+  margin-top: 20px;
+  text-align: end;
+  font-size: 12px;
+`
+
+export const LinktoSigninSpan = styled.span`
+  text-decoration: underline;
+  color: #ffffffa8;
+
+  &:hover {
+    cursor: pointer;
+    color: #ea4aaa;
+  }
 `

@@ -1,17 +1,6 @@
-import React from 'react'
-import cat from '../assets/cat.gif';
-import cloud1 from '../assets/cloud1.png';
-import cloud2 from '../assets/cloud1.png';
-import cloud3 from '../assets/cloud1.png';
-import forest from '../assets/forest.png';
-import moon from "../assets/moon.png"
-
 import styled, { keyframes } from 'styled-components';
 
-
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-
-const Scene = styled.div`
+export const Scene = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
@@ -29,7 +18,7 @@ const Scene = styled.div`
     z-index: 10000;
   }
 `
-const Moon = styled.img`
+export const Moon = styled.img`
   position: absolute;
   top: 0;
   left: 10;
@@ -40,7 +29,7 @@ const Moon = styled.img`
 
 `
 
-const Forest = styled.img`
+export const Forest = styled.img`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -48,7 +37,7 @@ const Forest = styled.img`
   z-index: 1000;
   transform: scale(1.2);
 `
-const Stars = styled.div`
+export const Stars = styled.div`
 width: 1px;
 height: 1px;
 background: transparent;
@@ -426,7 +415,7 @@ box-shadow: 779px 1331px #fff, 324px 42px #fff, 303px 586px #fff,
     696px 1654px #fff, 1144px 60px #fff;
 `
 
-const Stars2 = styled.div`
+export const Stars2 = styled.div`
 width: 2px;
 height: 2px;
 background: transparent;
@@ -551,7 +540,7 @@ box-shadow: 1448px 320px #fff, 1775px 1663px #fff, 332px 1364px #fff,
       986px 1529px #fff, 1667px 1137px #fff;
 `
 
-const Stars3 = styled.div`
+export const Stars3 = styled.div`
 width: 3px;
 height: 3px;
 background: transparent;
@@ -625,11 +614,11 @@ box-shadow: 387px 1878px #fff, 760px 1564px #fff, 1487px 999px #fff,
         494px 1957px #fff, 1296px 431px #fff, 175px 1507px #fff, 831px 121px #fff,
         498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
 `
-const Div = styled.div`
+export const Div = styled.div`
         background: #3751e0;
 `
 
-const rotate = keyframes`
+export const rotate = keyframes`
 
   from {
     transform: translateX(-100%) scale(1);
@@ -638,9 +627,9 @@ const rotate = keyframes`
     transform: translateX(400%) scale(1.5);
   }
  }
-` 
+`
 
-const Rotate = styled.img`
+export const Rotate = styled.img`
       position: absolute;
        top: 0;
        left: 0;
@@ -650,7 +639,7 @@ const Rotate = styled.img`
  
 `;
 
-const Rotate2 = styled.img`
+export const Rotate2 = styled.img`
       position: absolute;
        top: 0;
        left: 0;
@@ -660,7 +649,7 @@ const Rotate2 = styled.img`
  
 `;
 
-const Rotate3 = styled.img`
+export const Rotate3 = styled.img`
       position: absolute;
        top: 0;
        left: 0;
@@ -670,7 +659,7 @@ const Rotate3 = styled.img`
  
 `;
 
-const Rotate4 = styled.img`
+export const Rotate4 = styled.img`
       position: absolute;
        top: 200px;
        left: 0;
@@ -681,7 +670,7 @@ const Rotate4 = styled.img`
  
 `;
 
-const Rotate5 = styled.img`
+export const Rotate5 = styled.img`
       position: absolute;
        top: 150px;
        left: 0;
@@ -691,7 +680,7 @@ const Rotate5 = styled.img`
        animation-delay: -5%
 `;
 
-const Rotate6 = styled.img`
+export const Rotate6 = styled.img`
       position: absolute;
        top: 75px;
        left: 0;
@@ -701,7 +690,7 @@ const Rotate6 = styled.img`
        animation-delay: -10%
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   text-decoration: none;
   display: inline-block;
   position: absolute;
@@ -718,36 +707,4 @@ const Button = styled.button`
   z-index: 9;
 `;
 
-export const Welcome = () => {
-  return (
-    <Div>
-      <Scene>
-      <Parallax pages={3}>
-            <Stars></Stars>
-            <Stars2></Stars2>
-            <Stars3></Stars3>
-            <ParallaxLayer offset={0} speed={1}>
-              <Moon src={moon} alt="moon"></Moon>
-              <Rotate src={cloud1} alt="cloud1" />
-              <Rotate2 src={cloud2} alt="cloud2" />
-              <Rotate3 src={cloud3} alt="cloud3" />
-              <Rotate4 src={cloud1} alt="cloud1" />
-              <Rotate5 src={cloud2} alt="cloud2" />
-              <Rotate6 src={cloud3} alt="cloud3" />
-              <Button>EXPLORE</Button>
-            </ParallaxLayer>
-            <ParallaxLayer
-            sticky={{ start: 0.9, end: 2.5 }}
-            style={{ textAlign: 'center' }}
-            >
-             <img src={cat} />
-            </ParallaxLayer>
-            
-              <Forest src={forest} alt="forest" />
-
-
-      </Parallax>
-      </Scene>
-    </Div>
-  )
-}
+export const catImage = styled.img``

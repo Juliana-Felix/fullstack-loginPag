@@ -1,16 +1,16 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { loginFailure, loginStart, loginSuccess } from '../redux/userSlice'
-import { auth, provider } from "../firebase";
+import { loginFailure, loginStart, loginSuccess } from '../../redux/userSlice'
+import { auth, provider } from "../../firebase";
 import { signInWithPopup } from 'firebase/auth';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import * as S from './styledSignIn';
-//import api from "../services/api"
+import googlepng from "../../assets/pesquisa.png"
+
 
 export const Signin = () => {
   const [name, setName] = useState("")
-  //const [setEmail] = useState("")
   const [password, setPassword] = useState("")
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -31,13 +31,11 @@ export const Signin = () => {
     dispatch(loginStart())
     signInWithPopup(auth, provider)
       .then((result) => {
-        //console.log(result);
         axios.post("/auth/google", {
           name: result.user.displayName,
           email: result.user.email,
           img: result.user.photoURL,
         }).then((res) => {
-          //console.log(res)
           dispatch(loginSuccess(res.data))
           navigate("/home")
         })
@@ -52,14 +50,15 @@ export const Signin = () => {
     <S.ContainerForm>
       <S.DivForm>
         <S.Tittlesignin>Sign in</S.Tittlesignin>
-
-        <S.InputForm onChange={e => setName(e.target.value)} />
-
-        <S.InputForm onChange={e => setPassword(e.target.value)} type="password" />
+        <S.LabelLogin htmlfor="username">Username:</S.LabelLogin>
+        <S.InputForm id="username" onChange={e => setName(e.target.value)} />
+        <S.LabelLogin htmlfor="password" type="password">Password:</S.LabelLogin>
+        <S.InputForm id="password" onChange={e => setPassword(e.target.value)} type="password" />
 
         <S.ButtonSignin onClick={handleLogin}>Sign in</S.ButtonSignin>
         <S.SubTitleForm>or</S.SubTitleForm>
-        <S.BtnSigninGoogle onClick={signInWithGoogle}>Signin with Google</S.BtnSigninGoogle>
+        <S.BtnSigninGoogle onClick={signInWithGoogle}><S.ImageGoogle src={googlepng} />Signin with Google</S.BtnSigninGoogle>
+        <S.LinktoSignup>don´t have a account? <Link to="/signup"><S.LinktoSignupSpan>Signup </S.LinktoSignupSpan></Link></S.LinktoSignup>
       </S.DivForm>
     </S.ContainerForm>
   )
